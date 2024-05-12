@@ -36,3 +36,4 @@
 
 # Ignore IDE configs
 .idea
+.DS_store
