@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :stop_if_logged_in
+
   def new
     @user = User.new
   end
