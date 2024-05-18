@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_18_110447) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_18_161131) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -50,7 +50,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_18_110447) do
 
   create_table "orders", force: :cascade do |t|
     t.string "delivery_address", null: false
-    t.string "shipping_address"
     t.integer "status", default: 0
     t.integer "customer_id", null: false
     t.integer "courier_id"
@@ -64,6 +63,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_18_110447) do
     t.string "name", null: false
     t.integer "price", null: false
     t.float "weight", null: false
+    t.integer "storage_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["storage_id"], name: "index_products_on_storage_id"
+  end
+
+  create_table "storages", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -85,4 +93,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_18_110447) do
   add_foreign_key "order_products", "products"
   add_foreign_key "orders", "users", column: "courier_id"
   add_foreign_key "orders", "users", column: "customer_id"
+  add_foreign_key "products", "storages"
 end
