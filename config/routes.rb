@@ -7,5 +7,7 @@ Rails.application.routes.draw do
   resources :orders, only: [:index, :show]
   resources :products, only: [:index]
 
+  get 'calculate_route', to: 'orders#calculate_route'
+
   get "up" => "rails/health#show", as: :rails_health_check
 end

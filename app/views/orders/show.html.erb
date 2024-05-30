@@ -4,3 +4,5 @@
   <%= product.name %>
   </br>
 <% end %>
+
+<%= link_to 'Рассчитать маршрут', calculate_route_path(id: @order.id) %>

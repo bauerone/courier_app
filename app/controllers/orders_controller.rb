@@ -8,4 +8,10 @@ class OrdersController < ApplicationController
   def show
     @order = Order.preload(:products).find(params[:id])
   end
+
+  def calculate_route
+    order = Order.find(params[:id])
+
+    @duration = order.calculate_route
+  end
 end
