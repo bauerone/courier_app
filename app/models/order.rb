@@ -14,4 +14,14 @@ class Order < ApplicationRecord
   def calculate_route
     RouteFinder.new(self).calculate_duration
   end
+
+  def localized_status
+    locales = {
+      created: 'Создан',
+      delivery: 'В доставке',
+      delivered: 'Доставлен'
+    }.with_indifferent_access
+
+    locales[status]
+  end
 end
