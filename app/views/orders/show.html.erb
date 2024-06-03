@@ -5,4 +5,13 @@
   </br>
 <% end %>
 
-<%= link_to 'Рассчитать маршрут', calculate_route_path(id: @order.id) %>
+<h2>Адрес доставки: <%= @order.delivery_address %></h2>
+
+<%= form_with url: calculate_route_path(id: @order.id), method: :get do |form| %>
+  <%= form.hidden_field :id, value: @order.id %>
+
+  <%= form.label :start_address, 'Ваш текущий адрес' %>
+  <%= form.text_field :start_address %>
+
+  <%= form.submit 'Рассчитать маршрут' %>
+<% end %>

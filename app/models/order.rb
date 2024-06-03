@@ -11,10 +11,6 @@ class Order < ApplicationRecord
     products.map { |product| product.shipping_address }
   end
 
-  def calculate_route
-    RouteFinder.new(self).calculate_duration
-  end
-
   def localized_status
     locales = {
       created: 'Создан',
