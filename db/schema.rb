@@ -61,6 +61,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_18_161131) do
 
   create_table "products", force: :cascade do |t|
     t.string "name", null: false
+    t.string "description", null: false
     t.integer "price", null: false
     t.float "weight", null: false
     t.integer "storage_id", null: false

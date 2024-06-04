@@ -1,15 +1,56 @@
-<h1>Список заказов</h1>
+<main id="main">
 
-<table>
-  <tr>
-    <th>Номер</th>
-    <th>Адрес доставки</th>
-    <th>Статус</th>
-  </tr>
-  <% @orders.each do |order| %>
-    <td><%= order.id %></td>
-    <td><%= order.delivery_address %></td>
-    <td><%= order.localized_status %></td>
-    <td><%= link_to 'Детали заказа', order %></td>
-  <% end %>
-</table>
+  <!-- ======= Breadcrumbs ======= -->
+  <div class="breadcrumbs">
+    <div class="page-header d-flex align-items-center" style="background-image: <%= image_url("page-header.jpg") %>;">
+      <div class="container position-relative">
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-6 text-center">
+            <h2>Заказы</h2>
+            <p>Режим отображения: "<%= current_user.localized_role %>"</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav>
+      <div class="container">
+        <ol>
+          <li><%= link_to "Главная", root_path %></li>
+          <li>Заказы</li>
+        </ol>
+      </div>
+    </nav>
+  </div><!-- End Breadcrumbs -->
+
+  <!-- ======= Horizontal Pricing Section ======= -->
+  <section id="horizontal-pricing" class="horizontal-pricing pt-0">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-header">
+        <span>Список заказов</span>
+        <h2>Список заказов</h2>
+
+      </div>
+
+      <% @orders.each do |order| %>
+        <div class="row gy-4 pricing-item mt-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="col-lg-3 d-flex align-items-center justify-content-center">
+            <h3>Заказ №<%= order.id %></h3>
+          </div>
+          <div class="col-lg-3 d-flex align-items-center justify-content-center">
+            <h3>Адрес доставки: <%= order.delivery_address %></h3>
+          </div>
+          <div class="col-lg-3 d-flex align-items-center justify-content-center">
+            <h3>Статус: <%= order.localized_status %></h3>
+          </div>
+          <div class="col-lg-3 d-flex align-items-center justify-content-center">
+            <div class="text-center">
+              <%= link_to "Посмотреть детали заказа", order_path(order), class: "buy-btn" %>
+            </div>
+          </div>
+        </div><!-- End Pricing Item -->
+      <% end %>
+    </div>
+  </section><!-- End Horizontal Pricing Section -->
+
+</main><!-- End #main -->
