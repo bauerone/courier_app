@@ -41,7 +41,7 @@
             <% if product.image.persisted? %>
               <%= image_tag(product.image) %>
             <% else %>
-              <%= image_tag("favicon.png") %>
+              <%= image_tag("image-placeholder.jpg", size: 400) %>
             <% end %>
           </div>
           <div class="col-lg-3 d-flex align-items-center justify-content-center">
