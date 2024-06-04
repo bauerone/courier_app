@@ -6,10 +6,10 @@
         <h2 data-aos="fade-up">Оптимизируйте маршруты вашей курьерской службы!</h2>
         <p data-aos="fade-up" data-aos-delay="100">Здесь описание сути системы</p>
 
-        <form action="#" class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up" data-aos-delay="200">
-          <input type="text" class="form-control" placeholder="Найдите необходимые товары!">
-          <button type="submit" class="btn btn-primary">Поиск</button>
-        </form>
+        <%= form_with url: "/products", class: "form-search d-flex align-items-stretch mb-3", method: :get do |f| %>
+          <%= f.text_field :search, class: "form-control", placeholder: "Найдите необходимые товары!", "aria-describedby": "basic-addon2" %>
+          <%= f.submit 'Найти', class: "btn btn-primary" %>
+        <% end %>
 
         <div class="row gy-4" data-aos="fade-up" data-aos-delay="400">
 
