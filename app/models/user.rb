@@ -27,4 +27,8 @@ class User < ApplicationRecord
       admin: 'Администратор'
     }
   end
+
+  def localized_role
+    User.localized_roles[self.role.to_sym]
+  end
 end

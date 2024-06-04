@@ -7,7 +7,7 @@
         <div class="row d-flex justify-content-center">
           <div class="col-lg-6 text-center">
             <h2>Заказы</h2>
-            <p>Описание страницы заказов</p>
+            <p>Режим отображения: "<%= current_user.localized_role %>"</p>
           </div>
         </div>
       </div>
@@ -35,15 +35,13 @@
       <% @orders.each do |order| %>
         <div class="row gy-4 pricing-item mt-4" data-aos="fade-up" data-aos-delay="300">
           <div class="col-lg-3 d-flex align-items-center justify-content-center">
-            <h3><%= order.id %></h3>
+            <h3>Заказ №<%= order.id %></h3>
           </div>
           <div class="col-lg-3 d-flex align-items-center justify-content-center">
-            <h4><%= order.delivery_address %></h4>
+            <h3>Адрес доставки: <%= order.delivery_address %></h3>
           </div>
           <div class="col-lg-3 d-flex align-items-center justify-content-center">
-            <ul>
-              <li><i class="bi bi-check"></i> <%= order.localized_status %></li>
-            </ul>
+            <h3>Статус: <%= order.localized_status %></h3>
           </div>
           <div class="col-lg-3 d-flex align-items-center justify-content-center">
             <div class="text-center">
