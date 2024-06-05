@@ -7,7 +7,7 @@
         <div class="row d-flex justify-content-center">
           <div class="col-lg-6 text-center">
             <h2>Товары</h2>
-            <p>Описание страницы товаров.</p>
+            <p>Список всех товаров, представленных в системе</p>
           </div>
         </div>
       </div>
@@ -46,7 +46,7 @@
           </div>
           <div class="col-lg-3 d-flex align-items-center justify-content-center">
             <% if product.image.persisted? %>
-              <%= image_tag(product.image) %>
+              <%= image_tag(product.image, size: 400) %>
             <% else %>
               <%= image_tag("image-placeholder.jpg", size: 400) %>
             <% end %>

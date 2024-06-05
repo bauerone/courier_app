@@ -25,8 +25,9 @@ class OrdersController < ApplicationController
 
   def calculate_route
     order = Order.find(route_params[:id])
+    route_finder = RouteFinder.new(order: order, start_address: route_params[:start_address])
 
-    @duration = RouteFinder.new(order: order, start_address: route_params[:start_address]).find_optimal_route
+    @duration = route_finder.calculate_duration
   end
 
   private
