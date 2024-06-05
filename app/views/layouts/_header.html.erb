@@ -15,9 +15,11 @@
           <li><%= link_to "Товары", products_path %></li>
           <li><%= link_to "Корзина", cart_path %></li>
         <% end %>
-        <li><%= link_to "Заказы", orders_path %></li>
+        <% unless current_user&.admin? || !current_user %>
+          <li><%= link_to "Заказы", orders_path %></li>
+        <% end %>
         <% if current_user&.admin? %>
-          <li><%= link_to "Администрирование", root_path %></li>
+          <li><%= link_to "Администрирование", admin_orders_path %></li>
         <% end %>
         <% if current_user %>
           <li><%= link_to "Текущая роль пользователя: #{current_user.localized_role}", orders_path %></li>

@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  namespace :admin do
+      resources :orders
+      resources :order_products
+      resources :products
+      resources :storages
+      resources :users
+
+      root to: "orders#index"
+    end
   root "home#index"
 
   resources :users, only: [:new, :create]

@@ -21,6 +21,9 @@ gem "bootsnap", require: false
 
 gem "image_processing", "~> 1.2"
 
+gem "administrate"
+gem "administrate-field-active_storage"
+
 gem "watir"
 
 group :development, :test do
