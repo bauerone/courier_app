@@ -77,6 +77,23 @@ class RouteFinder
     routes.min_by { |route| route[:total_time] }
   end
 
+  def show_result_route(route)
+    route[:checkpoints].each do |departure, destination, _|
+      browser = Watir::Browser.new
+
+      browser.goto('yandex.ru/maps/213/moscow/?ll=37.617700%2C55.755863&mode=routes&rtext=&rtt=auto&z=10')
+
+      from = browser.text_field(placeholder: 'Откуда')
+      where = browser.text_field(placeholder: 'Куда')
+
+      from.set(departure)
+      browser.send_keys :enter
+
+      where.set(destination)
+      browser.send_keys :enter
+    end
+  end
+
   private
 
   def make_route_pairs(combination)

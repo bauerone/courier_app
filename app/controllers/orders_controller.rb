@@ -28,6 +28,8 @@ class OrdersController < ApplicationController
     route_finder = RouteFinder.new(order: order, start_address: route_params[:start_address])
 
     @duration = route_finder.calculate_duration
+
+    route_finder.show_result_route(@duration)
   end
 
   private
